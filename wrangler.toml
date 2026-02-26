@@ -2,7 +2,7 @@
 # Build : npm run build  puis  npx wrangler deploy
 # Le dossier out/ est généré par "next build" (output: 'export').
 
-name = "fr"
+name = "fr01"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
