@@ -2,20 +2,24 @@
 
 Ce projet est déployé en **Cloudflare Worker** (Workers Sites), pas en Pages.
 
-## Commande à utiliser
+## Commandes dans le dashboard Cloudflare
 
-Dans le dashboard Cloudflare (Build / Deploy), configurez :
+Si Cloudflare sépare **Build** et **Deploy** :
 
-```bash
-npm run deploy
-```
+| Étape   | Commande à configurer   |
+|--------|--------------------------|
+| **Build**  | `npm run build`          |
+| **Deploy** | `npx wrangler deploy`    |
 
-Cette commande :
-1. Lance **`npm run build`** (Next.js) → crée le dossier **`out/`**
-2. Lance **`wrangler deploy`** → déploie le Worker et uploade le contenu de **`out/`** dans KV
+**Important** : la commande de déploiement doit être **`npx wrangler deploy`**, et **pas** :
+- ~~`npx wrangler versions upload`~~ (incompatible avec Workers Sites)
+- ~~`wrangler pages deploy`~~ (pour Pages, pas pour ce Worker)
 
-**À utiliser** : `npm run deploy` (build + Worker)  
-**À ne pas utiliser** : `npx wrangler deploy` seul si le build n’a pas été fait avant (sinon le dossier `out/` est absent et le Worker n’a rien à servir).
+Workers Sites exige **`wrangler deploy`** pour envoyer le Worker et le contenu de **`out/`** (généré par le build).
+
+## Tout en une commande (optionnel)
+
+Si vous avez un seul champ « commande » : `npm run deploy` (fait build puis `wrangler deploy`).
 
 ## Résumé
 
