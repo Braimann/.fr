@@ -1,0 +1,15 @@
+# Cloudflare Pages - déploiement du site statique Next.js (output: 'export')
+# Ce fichier documente la config. Déploiement réel via le dashboard ou la CLI.
+#
+# Déploiement via dashboard Cloudflare Pages :
+# - Framework preset : Next.js (Static HTML Export)
+# - Build command : npm run build  (ou npx next build)
+# - Build output directory : out
+#
+# Déploiement via CLI (après npm run build) :
+#   npx wrangler pages deploy out --project-name=allosupport
+# Variables d'environnement requises : CLOUDFLARE_ACCOUNT_ID + token Pages (Pages Edit)
+
+name = "allosupport"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "out"
